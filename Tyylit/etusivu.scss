@@ -1,0 +1,107 @@
+$fonts: 'Leelawadee UI', 'Arial' ,'Comic Sans MS';
+
+
+body{
+    background-color: #76F9C0;
+    font-family: 'Leelawadee UI, Arial, Comic Sans MS';
+}
+.center-box{
+    min-width: 80%;
+    width: 80%;
+    height: 1000px;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+}
+.text-frame{
+    height: 900px;
+    width: 100%;
+    min-width: 100%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+
+    bottom: 0;
+
+}
+.title-area{
+    position: relative;
+    padding-top: 200px;
+    height: 350px;
+    display: grid;
+    grid-template-rows: 300px auto;
+    
+}
+.title{
+    min-width: 100%;
+    width: 100%;
+    font-family: $fonts;
+    font-size: 247px;
+    color: #707070;
+    text-align: center;
+}
+.title-text{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    font-family: $fonts;
+    font-weight: 100;
+    color: #707070;
+    
+}
+.question-box{
+    grid-area: question;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+.question-box h1{
+    font-family: $fonts;
+    color: #707070;
+    font-size: 50px;
+    font-weight: 50;
+}
+.question-box button{
+    padding: 10px;
+    border-radius: 50px;
+    border-color: #707070;
+    font-family: $fonts;
+    font-size: 30px;
+    cursor: pointer; 
+}
+.searchbar{
+    position: relative;
+    left: 30%;
+    margin-top: 20px;
+    transform: translate(-50%);
+    text-align: center;
+}
+.searchbar input[type=text]{
+    width: 800px;
+    border-radius: 25px 0 0 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border:#707070 1px solid;
+    font-family: $fonts;
+}
+.searchbar button{
+    border-radius: 0 25px 25px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    width: 50px;
+    transform: translate(-5px);
+    font-family: $fonts;
+    border:#707070 1px solid;
+
+}
+
+h1{
+    font-family: 'Leelawadee UI', 'Arial' ,'Comic Sans MS';
+}
+.button-box{
+    display: inline-grid;
+    grid-area: button;
+}

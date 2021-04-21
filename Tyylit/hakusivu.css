@@ -3,13 +3,60 @@ body {
 }
 
 .result-box {
-  position: relative;
+  position: absolute;
   left: 50%;
-  top: 50%;
+  top: 52%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 1500px;
+  width: 1600px;
   height: 900px;
   background-color: white;
+  border-radius: 25px;
+  border: 1px solid #707070;
+}
+
+.result-box h1 {
+  position: relative;
+  padding-left: 50px;
+  padding-top: 10px;
+  font-family: "Leelawadee UI", "Arial", "Comic Sans MS";
+  font-size: 80px;
+  font-weight: 100;
+  color: #707070;
+}
+
+.result-grid {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  width: 95%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  gap: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 650px;
+}
+
+.result {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 40%;
+      grid-template-columns: 60% 40%;
+  background-color: #F8F6F6;
+  border: #707070 1px solid;
+  height: 330px;
+}
+
+.result h1 {
+  font-size: 100px;
+}
+
+.result img {
+  width: 95%;
+  margin: 10px;
 }
 /*# sourceMappingURL=hakusivu.css.map */

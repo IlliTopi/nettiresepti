@@ -17,7 +17,23 @@
             <input type="text" id="search_input">
             <button onclick="Search()">Etsi</button>
     </div>
+    <div class="result-box">
+       <?php echo "<h1>Hakutulokset: ". $urlParameter . "</h1>"; ?>
+       <div class="result-grid">
+        <div class="result" data="moro" onclick="ToArticle(this.data)"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <div class="result" data="moro2" onclick="ToArticle(this.data)"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
 
+    </div>
+    </div>
+    
+    <script>
+        function ToArticle(value){
+            console.log(value)
+        }
+    </script>
     <script src="search.js"></script> 
 </body>
 </html>

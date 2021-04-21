@@ -70,33 +70,7 @@ body{
     font-size: 30px;
     cursor: pointer; 
 }
-.searchbar{
-    position: relative;
-    left: 30%;
-    margin-top: 20px;
-    transform: translate(-50%);
-    text-align: center;
-}
-.searchbar input[type=text]{
-    width: 800px;
-    border-radius: 25px 0 0 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border:#707070 1px solid;
-    font-family: $fonts;
-}
-.searchbar button{
-    border-radius: 0 25px 25px 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    width: 50px;
-    transform: translate(-5px);
-    font-family: $fonts;
-    border:#707070 1px solid;
 
-}
 
 h1{
     font-family: 'Leelawadee UI', 'Arial' ,'Comic Sans MS';

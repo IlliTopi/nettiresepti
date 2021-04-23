@@ -11,7 +11,17 @@
 <body>
     <?php
         $currentUrl = 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-        $urlParameter = htmlspecialchars($_GET["query"]);  
+        $urlParameter = htmlspecialchars($_GET["query"]);
+
+        $servername = 'localhost';
+        $username = 'root';
+        $password = '';
+        $dbname = 'nettiresepti_db';
+
+        $sql = "SELECT reseptin_id, otsikko FROM reseptit WHERE reseptin_id='" . $urlParameter."' OR otsikko='" . $urlParameter."'";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $result = $conn->query($sql);
+
     ?>
     <div class="searchbar">
             <input type="text" id="search_input">
@@ -20,20 +30,25 @@
     <div class="result-box">
        <?php echo "<h1>Hakutulokset: ". $urlParameter . "</h1>"; ?>
        <div class="result-grid">
-        <div class="result" data="moro" onclick="ToArticle(this.data)"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
-        <div class="result" data="moro2" onclick="ToArticle(this.data)"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
-        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
-        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
-        <div class="result"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <div class="result" data-text="moro" onclick="ToArticle(this.dataset.text)"><h1>UUeeee</h1><img src="ruoka.jpg"></div>
+        <?php 
+        if ($result->num_rows > 0) {
+            
+            while($row = $result->fetch_assoc()) {
+              echo '<div class="result" data-text="'. $row["reseptin_id"] .'" onclick="Recipe(this.dataset.text)"><h1>'. $row["otsikko"] .'</h1><img src="ruoka.jpg"></div>';
+            }
+          } else {
+            echo "0 results";
+          }
+
+        $conn->close();
+
+        ?>
 
     </div>
     </div>
     
-    <script>
-        function ToArticle(value){
-            console.log(value)
-        }
-    </script>
+    
     <script src="search.js"></script> 
 </body>
 </html>

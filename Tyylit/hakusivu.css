@@ -5,11 +5,11 @@ body {
 .result-box {
   position: absolute;
   left: 50%;
-  top: 52%;
+  top: 55%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 1600px;
-  height: 900px;
+  height: 800px;
   background-color: white;
   border-radius: 25px;
   border: 1px solid #707070;
@@ -23,6 +23,8 @@ body {
   font-size: 80px;
   font-weight: 100;
   color: #707070;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .result-grid {
@@ -52,7 +54,7 @@ body {
 }
 
 .result h1 {
-  font-size: 100px;
+  font-size: 50px;
 }
 
 .result img {

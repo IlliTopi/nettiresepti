@@ -44,11 +44,8 @@
         $conn->close();
 
         ?>
-
     </div>
     </div>
-    
-    
     <script src="search.js"></script> 
 </body>
 </html>

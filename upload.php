@@ -1,5 +1,7 @@
 
 <?php
+echo htmlspecialchars($_POST["body"]);
+
 $target_dir = "Kuvat/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -38,6 +40,7 @@ if ($uploadOk == 0) {
       echo "Sorry, there was an error uploading your file.";
     }
   }
+
 
 function renameFile(){
     global $target_dir, $target_file, $imageFileType;

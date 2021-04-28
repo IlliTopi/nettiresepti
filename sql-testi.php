@@ -27,7 +27,7 @@
           }
         echo "Yhteys pelittää <br><br>";
         
-        $sql = "INSERT INTO reseptit (reseptin_id, kayttajan_id, kuvat_url, otsikko, teksti, tagit, muokkaamispaiva) VALUES (" . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() . "," . generateRandomString() .")";
+        $sql = "INSERT INTO reseptit (reseptin_id, kayttajan_id, kuvat_url, otsikko, teksti, tagit, muokkaamispaiva) VALUES (" . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() .", " . generateRandomString() . ", CURDATE())";
 
         if ($conn->query($sql) === TRUE) {
           echo "New record created successfully";

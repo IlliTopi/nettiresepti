@@ -1,11 +1,19 @@
 
 <?php
+
 echo htmlspecialchars($_POST["body"]);
+
 
 $target_dir = "Kuvat/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'nettiresepti_db';
+
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
@@ -18,8 +26,11 @@ if(isset($_POST["submit"])) {
 }
 
 if (file_exists($target_file)) {
-    renameFile();
+   renameFile();
+   $target_file = $file_newname;
 }
+
+
 
 if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
@@ -36,17 +47,41 @@ if ($uploadOk == 0) {
   } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+ 
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      do{
+        $recipe_id = generateRandomString();
+        $sql = "SELECT reseptin_id FROM reseptit WHERE reseptin_id = ". $recipe_id ."";
+        $result = $conn->query($sql);
+      }
+      while($result !== false && $result->num_rows > 0);
+      echo $result;
+
+      $sql = "INSERT INTO reseptit (reseptin_id, kayttajan_id, kuvat_url, otsikko, teksti, tagit, muokkaamispaiva) VALUES('". $recipe_id ."', '1a','". $file_newname ."','" .$_POST['header'] . "', '".$_POST['body'] ."', '".$_POST['tags']."', curdate())";
+     
+      $result = $conn->query($sql);
+
+      $conn->close();
+
+
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
   }
+  echo $file_newname;
+
+
+
+
+
 
 
 function renameFile(){
-    global $target_dir, $target_file, $imageFileType;
+    global $target_dir, $target_file, $imageFileType, $file_newname;
     $file_newname = $target_dir . generateRandomString() . '.' . $imageFileType;
-    rename($target_file, $file_newname);
     if(file_exists($file_newname)){
+        rename($target_file, $file_newname);
         renameFile();
     }
 }
